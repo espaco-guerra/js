@@ -34,17 +34,12 @@ module.exports = function(grunt) {
         footer: ";})(jQuery);"
       },
       dist: {
-        // the files to concatenate
         src: [
           //include libs
-          'bower_components/three.js/index.js',
-          // 'libs/otherlib/otherlib.js',
+          'bower_components/threejs/build/index.js',
 
           //own classes and files
-          'src/**/!(base).js',
-
-          //the last script I need
-          'src/base.js'
+          'src/**/*.js'
         ],
         // the location of the resulting JS file
         dest: 'js/<%= pkg.name %>.js'
@@ -52,7 +47,7 @@ module.exports = function(grunt) {
     },
     watch: {
       scripts: {
-        files: ['src/**/*.js', 'tests/**/*.js'],
+        files: ['src/**/*.js', 'tests/**/*.js', 'tests/**/*.html'],
         tasks: ['dev-watch'],
         options: {
           interrupt: true
