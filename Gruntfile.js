@@ -69,12 +69,15 @@ module.exports = function(grunt) {
         dest: 'js/<%= pkg.name %>.min.js'
       }
     },
-    mocha: {
-      all: {
-        src: ['tests/index.html'],
-      },
-      options: {
-        run: true
+    mocha_istanbul: {
+      require: ['bower_components/jquery/dist/jquery.js', 'test_helper.js'],
+      coverage: {
+        src: 'tests',
+        options: {
+          coverageFolder: 'coverage',
+          mask: '**/*_tests.js',
+          root: 'src/'
+        }
       }
     }
   });
@@ -84,8 +87,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-remove-logging');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-mocha');
+  grunt.loadNpmTasks('grunt-mocha-istanbul');
 
-  grunt.registerTask('test', ['mocha']);
+  grunt.registerTask('test', ['mocha_istanbul:coverage']);
   grunt.registerTask('dev-watch', ['jshint', 'test', 'concat:dist']);
   grunt.registerTask('build', ['concat', 'removelogging', 'uglify']);
   grunt.registerTask('default', ['dev-watch']);
