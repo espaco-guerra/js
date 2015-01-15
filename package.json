@@ -16,7 +16,8 @@
     "grunt-remove-logging": "~0.2.0",
     "grunt-contrib-uglify": "~0.7.0",
     "grunt-mocha-istanbul": "~2.2.0",
-    "codeclimate-test-reporter": "~0.0.4"
+    "codeclimate-test-reporter": "~0.0.4",
+    "grunt-saucelabs": "~8.4.1"
   },
   "engine": {
     "node": "0.10.x",

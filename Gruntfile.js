@@ -79,6 +79,24 @@ module.exports = function(grunt) {
           root: 'src/'
         }
       }
+    },
+    'saucelabs-mocha': {
+      all: {
+        options: {
+          // username: ENV SAUCE_USERNAME
+          // key: ENV SAUCE_ACCESS_KEY
+          urls: [],
+          testname: 'Sauce Unit Test for EspacoGuerra JS Client',
+          browsers: [
+            ["Windows 8.1", "firefox", 34], ["Windows 8.1", "chrome", 39],
+            ["Windows 8.1", "ie", 11], ["Windows 7", "opera", 12],
+            ["OS X 10.10", "firefox", 34], ["OS X 10.10", "chrome", 39],
+            ["OS X 10.10", "safari", 8],
+            ["Linux", "firefox", 34], ["Linux", "chrome", 39],
+            ["Linux", "opera", 12]
+          ]
+        }
+      }
     }
   });
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -88,6 +106,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-mocha');
   grunt.loadNpmTasks('grunt-mocha-istanbul');
+  grunt.loadNpmTasks('grunt-saucelabs');
 
   grunt.registerTask('test', ['mocha_istanbul:coverage']);
   grunt.registerTask('dev-watch', ['jshint', 'test', 'concat:dist']);
