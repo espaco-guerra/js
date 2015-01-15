@@ -2,6 +2,8 @@
 
 This a JS client for the EspacoGuerra game. Should be compatible with all major browsers targeting desktops.
 
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/hugocorbucci.svg)](https://saucelabs.com/u/hugocorbucci)
+
 Mobile versions can use either the iOS or Android projects.
 
 ## Requirements:

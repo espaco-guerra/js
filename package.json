@@ -17,6 +17,7 @@
     "grunt-contrib-uglify": "~0.7.0",
     "grunt-mocha-istanbul": "~2.2.0",
     "codeclimate-test-reporter": "~0.0.4",
+    "grunt-contrib-connect": "~0.8.0",
     "grunt-saucelabs": "~8.4.1"
   },
   "engine": {
