@@ -1,4 +1,5 @@
 /*global module:false*/
+/*global process:false*/
 module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
