@@ -94,7 +94,9 @@ module.exports = function(grunt) {
             ["OS X 10.10", "safari", 8],
             ["Linux", "firefox", 34], ["Linux", "chrome", 39],
             // ["Linux", "opera", 12]
-          ]
+          ],
+          build: process.env.SNAP_PIPELINE_COUNTER || 'manual',
+          public: 'public'
         }
       }
     },
