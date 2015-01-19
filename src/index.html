@@ -2,13 +2,36 @@
 <head>
   <meta charset="utf-8">
   <title>Espaco Guerra JS Client</title>
+  <!--[if IE]><script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/excanvas.js"></script><![endif]-->
 </head>
 <body>
+  <label>
+    Join game at:
+    <input type='text' id='game_url'></input>
+  </label>
+  <input type='button' id='join_game' value='Join!'></input>
+  <input type='button' id='leave_game' value='Stop game'></input>
   <div id="game"></div>
 
   <script src="../bower_components/jquery/dist/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="../js/espaco-guerra-js.js" type="text/javascript" charset="utf-8"></script>
 
-  <script src="./app/util.js" type="text/javascript" charset="utf-8"></script>
-  <script src="./base.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    (function($) {
+      $(document).ready(function() {
+        $('#join_game').click(function(event) {
+          var uri = $('#game_url').val();
+          $('#game').data('model', $.espacoGuerra.joinGame('#game', uri));
+        });
+        $('#leave_game').click(function(event) {
+          var game = $('#game');
+          if(game.data('model')) {
+            game.data('model').exit();
+          }
+          game.data = null;
+        });
+      });
+    })(jQuery);
+  </script>
 </body>
 </html>
